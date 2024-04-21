@@ -5,15 +5,11 @@ M.cursor_position = {
     end_of_line = 1,
 }
 
-function M.merge_default_with_user(user_config, keymaps)
+function M.merge_default_with_user(user_config)
     local default_config = {
-        clean_command = {
-            fallback_to_regular_backspace = false,
-        },
         delete_command = {
-            goto_previous_line_after_delete = true,
-            change_pos_after_delete = M.cursor_position.end_of_line, -- nil = do nothing
-            fallback_to_regular_backspace = true,
+            goto_next_line_after_delete = false,
+            change_pos_after_delete = M.cursor_position.end_of_line,
         },
         should_create_keymaps = true,
     }
