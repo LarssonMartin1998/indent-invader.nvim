@@ -5,7 +5,7 @@ local M = {}
 local commands_name_prefix = "IndentInvader"
 local command_names = {
     "Delete",
-    "Clean",
+    -- "Clean",
 }
 
 local line_state = {
@@ -91,25 +91,26 @@ local function delete()
     end)
 end
 
-local function clean()
-    handle_line_command(function()
-        -- local line_number = vim.api.nvim_win_get_cursor(0)[1] - 1
-        -- vim.api.nvim_buf_set_lines(0, line_number, line_number + 1, false, {})
-    end)
-end
+-- local function clean()
+--     handle_line_command(function()
+--         local row, _ = unpack(vim.api.nvim_win_get_cursor(0))
+--         row = row - 1 -- Convert to 0-based index
+--         set_line(row, true)
+--     end)
+-- end
 
 function M.get_delete_command_name()
     return commands_name_prefix .. command_names[1]
 end
 
-function M.get_clean_command_name()
-    return commands_name_prefix .. command_names[2]
-end
+-- function M.get_clean_command_name()
+--     return commands_name_prefix .. command_names[2]
+-- end
 
 function M.create_user_commands()
     local commands = {
         { M.get_delete_command_name(), delete },
-        { M.get_clean_command_name(),  clean },
+        -- { M.get_clean_command_name(),  clean },
     }
 
     for _, command in ipairs(commands) do

@@ -5,8 +5,8 @@ local M = {}
 function M.merge_default_with_user(user_keymaps)
     user_keymaps = user_keymaps or {}
     local defaul_keymaps = {
-        { "i", "<BS>",   "<cmd>" .. commands.get_delete_command_name() .. "<CR>" },
-        { "i", "<S-BS>", "<cmd>" .. commands.get_clean_command_name() .. "<CR>" },
+        { "i", "<BS>", "<cmd>" .. commands.get_delete_command_name() .. "<CR>" },
+        -- { "i", "<S-BS>", "<cmd>" .. commands.get_clean_command_name() .. "<CR>" },
     }
 
     return vim.tbl_deep_extend("force", defaul_keymaps, user_keymaps)
